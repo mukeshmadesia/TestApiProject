@@ -1,0 +1,14 @@
+﻿{
+  "language": {
+    "feature": "en"
+  },
+  "unitTestProvider": {
+    "name": "nunit"
+  },
+  "generator": {
+    "allowDebugGeneratedFiles": false,
+    "allowRowTests": true,
+    "generateAsyncTests": false,
+    "path": "%TEMP%"
+  }
+}

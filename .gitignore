@@ -1,0 +1,37 @@
+﻿# Build Folders
+bin/
+obj/
+TestResults/
+
+# User-Specific Files
+.vs/
+.vscode/
+.idea/
+*.user
+*.suo
+*.csproj.user
+
+# OS-Specific Files
+.DS_Store
+Thumbs.db
+
+# SpecFlow Generated Files
+*.feature.cs
+
+# Configuration Files
+appsettings.Development.json
+.env
+
+# Rider Specific Files
+.idea/
+*.sln.iml
+
+# Logs
+*.log
+
+# Visual Studio Code directories
+.vscode/
+
+# NuGet Packages
+packages/
+
