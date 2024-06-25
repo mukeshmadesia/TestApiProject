@@ -23,6 +23,9 @@ jobs:
 
     - name: Run SpecFlow Tests
       run: dotnet test --logger trx --results-directory TestResults
+      env:
+         API_BASE_URL: ${{ vars.AUTHORIZATION_KEY }}
+         AUTHORIZATION_KEY: ${{ secrets.AUTHORIZATION_KEY }}
 
     - name: Upload TRX Test Results
       uses: actions/upload-artifact@v3

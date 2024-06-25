@@ -3,6 +3,8 @@ using AventStack.ExtentReports.Reporter;
 using System.Diagnostics;
 using System.IO;
 
+#pragma warning disable CS8602
+
 namespace TestApiProject.Utilities
 {
     public static class ExtentReportManager
