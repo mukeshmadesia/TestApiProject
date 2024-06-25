@@ -1,10 +1,8 @@
-﻿using System;
-using Google.Protobuf.WellKnownTypes;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using NUnit.Framework;
 using RestSharp;
 using TechTalk.SpecFlow;
-using System.Threading;
+
 
 #pragma warning disable CS8602, CS8604, CS8618
 
@@ -44,30 +42,15 @@ namespace TestApiProject.StepDefinitions
             _request.AddJsonBody(bookingRequest);
 
             var jsonBody = JsonConvert.SerializeObject(bookingRequest, Formatting.Indented);
-            Console.WriteLine("--json body--");
-            Console.WriteLine(jsonBody);
-            Console.WriteLine("----");
-            //_request.AddJsonBody(jsonBody);
+                  
         }
 
         [When(@"I send a POST request to create the booking")]
         public void WhenISendAPOSTRequestToCreateTheBooking()
         {
-
-            Console.WriteLine("--request--");
-            Console.WriteLine(_request);
-            Console.WriteLine("----");
-
-            //CancellationToken cancellationToken = default;
-
             // Execute the request
             _response = _client.Execute(_request);
 
-            Console.WriteLine("--response--");
-            Console.WriteLine(_response);
-            Console.WriteLine("--response code--");
-            Console.WriteLine(_response.StatusCode);
-            Console.WriteLine("----");
         }
 
         //[Then(@"the booking should be successfully created with the same (.+), (.+), (.+), (.+), (.+), (.+), and (.+)")]
@@ -75,16 +58,7 @@ namespace TestApiProject.StepDefinitions
         public void ThenTheBookingShouldBeCreatedWith(string ExpectedStatus, string firstName, string lastName, int totalPrice, bool depositPaid, string checkInDate, string checkOutDate, string additionalNeeds)
         {
             // Deserialize the response to verify the booking details
-
-            Console.WriteLine("-content---");
-            Console.WriteLine(_response.Content);
-            Console.WriteLine("----");
             var bookingResponse = JsonConvert.DeserializeObject<dynamic>(_response.Content);
-
-            Console.WriteLine("-bookingResponse---");
-            Console.WriteLine(bookingResponse);
-            Console.WriteLine("----");
-
             
             // Assert the response data
             if(ExpectedStatus == "Successfull")

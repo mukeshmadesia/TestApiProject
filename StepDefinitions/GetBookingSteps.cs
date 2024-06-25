@@ -57,33 +57,16 @@ namespace TestApiProject.StepDefinitions
             {
                 _response = _client.Execute(_request);
 
-                Console.WriteLine("--response body--");
-                Console.WriteLine(_response.Content);
-                Console.WriteLine("----");
-
-
                 var bookingResponse = JsonConvert.DeserializeObject<dynamic>(_response.Content);
                 _bookingId = bookingResponse.bookingid;
-
-                Console.WriteLine("--create response--");
-                Console.WriteLine(bookingResponse);
-                Console.WriteLine("----");
-                Console.WriteLine(_bookingId);
-                Console.WriteLine("--_bookingId up--");
-
                 
             }
       
-
-
         }
 
         [When(@"I retrieve booking details for (.*) (.*)")]
         public void WhenIRetrieveBookingDetailsFor(string scenario, string bookingId)
         {
-            Console.WriteLine("--input bookingid--");
-            Console.WriteLine(bookingId);
-            Console.WriteLine("----");
 
             if (string.IsNullOrWhiteSpace(bookingId))
             {
