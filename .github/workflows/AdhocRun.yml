@@ -3,8 +3,9 @@
 on: [ workflow_dispatch ]
 
 jobs:
-  build:
+  build_and_Test:
     runs-on: ubuntu-latest
+    environment: QA
 
     steps:
     - name: Checkout code
@@ -23,6 +24,9 @@ jobs:
 
     - name: Run SpecFlow Tests
       run: dotnet test --logger trx --results-directory TestResults
+      env:
+        API_BASE_URL: ${{ vars.API_BASE_URL }}
+        AUTHORIZATION_KEY: ${{ secrets.AUTHORIZATION_KEY }}
 
     - name: Upload TRX Test Results
       uses: actions/upload-artifact@v3
