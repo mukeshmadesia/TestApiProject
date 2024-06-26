@@ -20,7 +20,7 @@ Thumbs.db
 
 # Configuration Files
 appsettings.Development.json
-.env
+#.env
 
 # Rider Specific Files
 .idea/
