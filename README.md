@@ -33,7 +33,7 @@ TestResults/
 └── ExtentReport.html        # Generated test report
 
 .env                         # Contains Base API URL and Authorization Key
-
+```
 ## Framework
 
 - Framework: NUnit
@@ -49,17 +49,21 @@ TestResults/
 ```sh
 git clone https://github.com/mukeshmadesia/TestApiProject.git
 cd <path-to-project-folder>
-
+```
 
 ## Install Dependencies
 ```sh
 dotnet restore
-
+```
 Ensure you have the following installed:
 
 - .NET SDK
 - NUnit Console Runner
 - SpecFlow for Visual Studio
+- NewtonJson
+- RestSharp
+- ExtentReports
+- dotenv.net
 
 ## Set Up Environment Variables
 
@@ -68,24 +72,25 @@ Create a `.env` file in the root directory with the following content:
 ```plaintext
 API_BASE_URL=https://restful-booker.herokuapp.com
 AUTHORIZATION_KEY=your-authorization-key
-
+```
 
 ## Build the Project
 ```sh
 dotnet build
+```
 
 ## Run Tests Locally
 To run tests locally, execute the following command:
 ```sh
 dotnet test
-
+```
 
 ## Test Execution - Continuous Integration
 ### Adhoc Run Workflow
 .github/workflows/AdhocRun.yml is triggered manually for adhoc testing.
 - Go to `Actions`Tab
-- Click on Riverty Adhoc Test`on left side in Workflow
-- On Right - Click `Run Workflow`, Choose branch and `RunWorkflowà
+- Click on `Riverty Adhoc Test`on left side in Workflow on window
+- On Right - Click `Run Workflow`, Choose branch and `RunWorkflow`
 
 ### CI Pipeline
 Push and Merge Triggers: The RunCI.yml workflow is configured to run on push and merge events. This ensures that the tests are executed as part of the CI pipeline.
@@ -95,9 +100,10 @@ Push and Merge Triggers: The RunCI.yml workflow is configured to run on push and
 ## Reporting
 
 Extent Report - has been used for reporting
-Report - TestResults/ExtentReport.html
 
-CI Test Report can be downloaded from `Artifacts`section Within Test execution Pipeline
+### Report Path - 
+- TestResults/ExtentReport.html
+- CI Test Report can be downloaded from `Artifacts` section Within Test execution Pipeline
 
 ### Report Content
 - No of Test caes passed/failed and Pie chart representation of same.
